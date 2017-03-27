@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: fb4dbea61b0eb354ca0def25f84b9ffa
+timeCreated: 1490577542
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: JLS Space GothicC
+  fontNames:
+  - JLS Space GothicC
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

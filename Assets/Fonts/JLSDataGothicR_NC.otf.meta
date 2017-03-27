@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ca03ed78129f6724899369fd286d87d3
+timeCreated: 1490577542
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: JLS Data GothicR
+  fontNames:
+  - JLS Data GothicR
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
