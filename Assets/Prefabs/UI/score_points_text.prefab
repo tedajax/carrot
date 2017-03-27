@@ -73,20 +73,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2704d751e3007f14e8a43de046c48cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0
+  duration: 2
   heightCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
-  heightScalar: 0
+    m_RotationOrder: 0
+  heightScalar: 25
   alphaCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1.09375
+      inSlope: 0.0098708365
+      outSlope: 0.0098708365
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0.0063397423
+      outSlope: 0.0063397423
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!222 &222524152716905318
 CanvasRenderer:
   m_ObjectHideFlags: 1
