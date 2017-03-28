@@ -128,9 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd8fa48d42690e64992400e4fe8f83cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTransform: {fileID: 0}
-  smoothTime: 0.5
-  maxSpeed: Infinity
+  smoothTimeBase: 0.05
+  smoothTimeInterval: 0.05
 --- !u!114 &114921314712583128
 MonoBehaviour:
   m_ObjectHideFlags: 1

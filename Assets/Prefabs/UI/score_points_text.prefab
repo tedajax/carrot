@@ -80,33 +80,33 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  heightScalar: 25
+  heightScalar: 50
   alphaCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 1.09375
-      inSlope: 0.0098708365
-      outSlope: 0.0098708365
+      value: 1
+      inSlope: -0.012192009
+      outSlope: -0.012192009
       tangentMode: 0
     - serializedVersion: 2
       time: 1
       value: 0
-      inSlope: 0.0063397423
-      outSlope: 0.0063397423
+      inSlope: -2.5885434
+      outSlope: -2.5885434
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

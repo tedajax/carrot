@@ -10,7 +10,7 @@ public class HeldItem : MonoBehaviour
     {
         var health = GetComponent<HealthProperty>();
         if (health != null) {
-            health.Subscribe((sender) => { RemoveFromInventory(); });
+            health.onDeath += (sender) => { RemoveFromInventory(); };
         }
     }
 

@@ -36,6 +36,8 @@ public class RockController : MonoBehaviour
 
     public RockState State { get { return state; } }
 
+    private HealthProperty health;
+
     private delegate void StateUpdateHandler();
     private delegate void StateStartHandler(RockState oldState);
 
@@ -45,6 +47,9 @@ public class RockController : MonoBehaviour
     public void Init(RockConfig config, Vector3 position)
     {
         this.config = config;
+
+        health = GetComponent<HealthProperty>();
+        health.onDeath += (GameObject sender) => { Respawn(); };
 
         addState(RockState.Spawn, onSpawnStart, onSpawnUpdate);
         addState(RockState.Idle, onIdleStart, onIdleUpdate);
@@ -59,6 +64,7 @@ public class RockController : MonoBehaviour
 
     public void Respawn()
     {
+        health.Revive();
         setState(RockState.Spawn);
     }
 
@@ -130,7 +136,7 @@ public class RockController : MonoBehaviour
         position.y -= config.fallSpeed * Time.deltaTime;
         transform.position = position;
         if (position.y <= config.deadHeight) {
-            setState(RockState.Spawn);
+            Respawn();
         }
     }
 

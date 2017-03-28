@@ -6,7 +6,7 @@ public class DestroyOnDeath : MonoBehaviour
     {
         var health = GetComponent<HealthProperty>();
         if (health != null) {
-            health.Subscribe(onDeath);
+            health.onDeath += onDeath;
         }
         else {
             Debug.LogError("DestroyOnDeath component requires a HealthProperty to work.");

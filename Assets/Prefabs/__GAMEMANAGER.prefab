@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4434200710233686}
   - component: {fileID: 114266924652106032}
   - component: {fileID: 114868185192438906}
+  - component: {fileID: 114723577067077228}
   - component: {fileID: 114098507221007900}
   m_Layer: 0
   m_Name: __GAMEMANAGER
@@ -53,6 +54,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24bbd23d1d2710e4d84861682b198605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
 --- !u!114 &114266924652106032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,8 +78,27 @@ MonoBehaviour:
       prefab: {fileID: 1649522678926630, guid: 3f2314bc86478904b9f5f104feea727c, type: 2}
     - name: score_text
       prefab: {fileID: 1340690774060004, guid: 39f38baf746ef2f4cb4f102d0537ddd3, type: 2}
-  rockDirector: {fileID: 114868185192438906}
+  rockManager: {fileID: 114868185192438906}
+  carrotManager: {fileID: 114723577067077228}
   hudController: {fileID: 114098507221007900}
+--- !u!114 &114723577067077228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1346947212769560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1671acfb380b649a95cc00a733ddd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    minSpawnX: -5
+    maxSpawnX: 5
+    spawnY: -5
+    spawnRate: 1
+    carrotPrefab: {fileID: 1439357894246092, guid: 71bb18d1621d0804e8a87f5d7312bb3e,
+      type: 2}
 --- !u!114 &114868185192438906
 MonoBehaviour:
   m_ObjectHideFlags: 1

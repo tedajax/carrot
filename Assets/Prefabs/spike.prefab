@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114416086041227784}
   - component: {fileID: 60784748957017446}
   - component: {fileID: 114468822532331306}
+  - component: {fileID: 114591577795408964}
   m_Layer: 9
   m_Name: spike
   m_TagString: Untagged
@@ -85,7 +86,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  destroySelfOnCollision: 1
+  damageSelf: 1
+--- !u!114 &114591577795408964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1359788353211818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cb228a3f6cd32f41a06eb705d5c2568, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
 --- !u!212 &212760912408190982
 SpriteRenderer:
   m_ObjectHideFlags: 1

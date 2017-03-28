@@ -6,26 +6,27 @@ public class PickupReceiver : MonoBehaviour
     private List<PickupController> linkedPickups = new List<PickupController>();
 
     public delegate void PickupHandler(PickupPayload payload);
-    private event PickupHandler onPickupReceived;
+    public delegate bool CanPickupCallback(PickupPayload payload);
 
-    public void Subscribe(PickupHandler handler)
-    {
-        onPickupReceived += handler;
-    }
+    public event PickupHandler onPickupReceived;
+    public event CanPickupCallback canPickupCallback;
 
-    public void Unsubscribe(PickupHandler handler)
-    {
-        onPickupReceived -= handler;
-    }
-
-    public void Receive(PickupController pickup)
+    public bool Receive(PickupController pickup)
     {
         if (pickup != null) {
+            if (canPickupCallback != null) {
+                if (!canPickupCallback(pickup.payload)) {
+                    return false;
+                }
+            }
+
             pickup.OnReceived(this);
             if (onPickupReceived != null) {
                 onPickupReceived(pickup.payload);
+                return true;
             }
         }
+        return false;
     }
 
     public void Link(PickupController pickup)

@@ -3,7 +3,7 @@
 public class DamageOnCollision : MonoBehaviour
 {
     public float damage = 1f;
-    public bool destroySelfOnCollision = true;
+    public bool damageSelf = true;
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -13,8 +13,11 @@ public class DamageOnCollision : MonoBehaviour
             health.Damage(damage);
         }
 
-        if (destroySelfOnCollision) {
-            Destroy(gameObject);
+        if (damageSelf) {
+            var rockHealth = GetComponent<HealthProperty>();
+            if (rockHealth != null) {
+                rockHealth.Damage(damage);
+            }
         }
     }
 }

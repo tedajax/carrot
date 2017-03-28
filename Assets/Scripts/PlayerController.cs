@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour, IPickupHolder
     {
         animator = GetComponentInChildren<Animator>();
         pickupReceiver = GetComponent<PickupReceiver>();
-        pickupReceiver.Subscribe(onPickupReceived);
+        pickupReceiver.onPickupReceived += onPickupReceived;
+        pickupReceiver.canPickupCallback += canPickup;
 
         inventory = new Inventory(itemTransforms);
     }
@@ -105,6 +106,11 @@ public class PlayerController : MonoBehaviour, IPickupHolder
         if (payload.name == "carrot") {
             addCarrot();
         }
+    }
+
+    private bool canPickup(PickupPayload payload)
+    {
+        return inventory.HasAvailableSpace;
     }
 
     private void addCarrot()

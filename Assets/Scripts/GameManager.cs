@@ -42,7 +42,8 @@ public class PrefabRegistry
 public class GameManager : MonoBehaviour
 {
     public GameConfig gameConfig;
-    public RockManager rockDirector;
+    public RockManager rockManager;
+    public CarrotManager carrotManager;
     public HUDController hudController;
 
     private PrefabRegistry prefabRegistry;

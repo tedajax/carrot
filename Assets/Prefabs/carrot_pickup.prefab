@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212974077156080158}
   - component: {fileID: 61662591370708142}
   - component: {fileID: 114767235236043326}
+  - component: {fileID: 114834923077603006}
+  - component: {fileID: 114800639652604962}
   m_Layer: 10
   m_Name: carrot_pickup
   m_TagString: Untagged
@@ -53,9 +55,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.015216172, y: 0.022824228}
+  m_Offset: {x: 0.003822371, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.36611962, y: 0.38654643}
+  m_Size: {x: 0.3277272, y: 0.57}
 --- !u!114 &114767235236043326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,9 +70,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupImmediately: 0
-  destroyOnPickup: 0
+  destroyOnPickup: 1
   payload:
     name: carrot
+--- !u!114 &114800639652604962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439357894246092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0576a0190e3fa0e41a177c107596838d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  axis: {x: 1, y: 1, z: 1}
+  scalar: 1
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0.19014084
+      outSlope: 0.19014084
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: -1.1911765
+      outSlope: -1.1911765
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  duration: 0.5
+--- !u!114 &114834923077603006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439357894246092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a55901c87fb4cd41a4341bb6329a4a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 1, z: 0}
+  scalar: 0.4
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.3556733
+      value: 1.0148237
+      inSlope: 1.0976443
+      outSlope: 1.0976443
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  duration: 0.5
 --- !u!212 &212974077156080158
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,7 +174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5352b1c5774c8f44b84af6192f769810, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66d5e3996dd054c4a805a4d7c9731ab2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
