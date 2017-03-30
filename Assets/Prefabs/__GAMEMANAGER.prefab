@@ -95,8 +95,8 @@ MonoBehaviour:
   config:
     minSpawnX: -5
     maxSpawnX: 5
-    spawnY: -5
-    spawnRate: 1
+    spawnY: -5.2
+    spawnRate: 5
     carrotPrefab: {fileID: 1439357894246092, guid: 71bb18d1621d0804e8a87f5d7312bb3e,
       type: 2}
 --- !u!114 &114868185192438906
@@ -113,8 +113,8 @@ MonoBehaviour:
   rockConfig:
     spawnSpeed: 1
     fallSpeed: 8
-    spawnHeight: 5.5
-    idleHeight: 5.1
+    spawnHeight: 4.6
+    idleHeight: 4.2
     deadHeight: -5.5
     minSpawnTime: 1
     maxSpawnTime: 10
