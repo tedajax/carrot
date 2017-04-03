@@ -27,6 +27,7 @@ public class CarrotItemController : MonoBehaviour
     private void onDeath(GameObject sender)
     {
         heldItem.Inventory.RemoveAllItems();
+        GetComponent<Collider2D>().enabled = false;
     }
 
     private void onRemovedFromInventory(HeldItem item)

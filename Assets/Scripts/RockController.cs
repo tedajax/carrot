@@ -112,14 +112,14 @@ public class RockController : MonoBehaviour
     private void onIdleUpdate()
     {
         float timeMultiplier = 1f;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 15, LayerMask.GetMask("Player"));
-        if (hit.collider != null) {
-            timeMultiplier = 8f;
-            GetComponent<SpriteRenderer>().color = Color.red;
-        }
-        else {
-            GetComponent<SpriteRenderer>().color = Color.white;
-        }
+        //RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 15, LayerMask.GetMask("Player"));
+        //if (hit.collider != null) {
+        //    timeMultiplier = 8f;
+        //    GetComponent<SpriteRenderer>().color = Color.red;
+        //}
+        //else {
+        //    GetComponent<SpriteRenderer>().color = Color.white;
+        //}
 
         idleTimer -= Time.deltaTime * timeMultiplier;
         if (idleTimer <= 0f) {

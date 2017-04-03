@@ -59,15 +59,13 @@ public class PlayerController : MonoBehaviour, IPickupHolder
         if (!health.IsDead) {
             updateMovement();
 
-            bool grabButtonDown = Input.GetButton("Grab");
-
             if (!IsGrabbing) {
-                if (grabButtonDown && inventory.HasAvailableSpace) {
+                if (Input.GetButtonDown("Grab") && inventory.HasAvailableSpace) {
                     pickupReceiver.StartGrab();
                 }
             }
             else {
-                if (!grabButtonDown) {
+                if (Input.GetButtonUp("Grab")) {
                     pickupReceiver.EndGrab();
                 }
             }
