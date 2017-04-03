@@ -4,9 +4,14 @@ using System.Collections.Generic;
 public class PickupReceiver : MonoBehaviour
 {
     private List<PickupController> linkedPickups = new List<PickupController>();
+    private PickupController activeGrabPickup;
+    private float grabTimer;
 
-    public delegate void PickupHandler(PickupPayload payload);
-    public delegate bool CanPickupCallback(PickupPayload payload);
+    public bool IsGrabbing { get { return activeGrabPickup != null; } }
+    public PickupController GrabbedPickup { get { return activeGrabPickup; } }
+
+    public delegate void PickupHandler(PickupController pickup);
+    public delegate bool CanPickupCallback(PickupController pickup);
 
     public event PickupHandler onPickupReceived;
     public event CanPickupCallback canPickupCallback;
@@ -15,16 +20,18 @@ public class PickupReceiver : MonoBehaviour
     {
         if (pickup != null) {
             if (canPickupCallback != null) {
-                if (!canPickupCallback(pickup.payload)) {
+                if (!canPickupCallback(pickup)) {
                     return false;
                 }
             }
 
+            activeGrabPickup = null;
+            Unlink(pickup);
             pickup.OnReceived(this);
             if (onPickupReceived != null) {
-                onPickupReceived(pickup.payload);
-                return true;
+                onPickupReceived(pickup);
             }
+            return true;
         }
         return false;
     }
@@ -43,10 +50,48 @@ public class PickupReceiver : MonoBehaviour
         }
     }
 
-    public void AttemptPickup()
+    public void StartGrab()
+    {
+        if (activeGrabPickup != null) {
+            return;
+        }
+
+        PickupController pickup = GetAvailablePickup();
+        if (pickup == null) {
+            return;
+        }
+
+        if (pickup.grabTime > 0f) {
+            activeGrabPickup = pickup;
+            grabTimer = pickup.grabTime;
+        }
+        else {
+            Receive(pickup);
+        }
+    }
+
+    public void EndGrab()
+    {
+        activeGrabPickup = null;
+    }
+
+    public PickupController GetAvailablePickup()
     {
         if (linkedPickups.Count > 0) {
-            Receive(linkedPickups[linkedPickups.Count - 1]);
+            return linkedPickups[linkedPickups.Count - 1];
+        }
+        return null;
+    }
+
+    void Update()
+    {
+        if (IsGrabbing) {
+            grabTimer -= Time.deltaTime;
+            if (grabTimer <= 0f) {
+                if (Receive(activeGrabPickup)) {
+                    activeGrabPickup = null;
+                }
+            }
         }
     }
 }

@@ -69,8 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91c4f8e3a847b864dab11183f8869218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupImmediately: 0
+  pickupOnContact: 0
   destroyOnPickup: 1
+  grabTime: 0.33
   payload:
     name: carrot
 --- !u!114 &114800639652604962

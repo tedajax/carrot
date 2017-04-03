@@ -78,6 +78,7 @@ MonoBehaviour:
       prefab: {fileID: 1649522678926630, guid: 3f2314bc86478904b9f5f104feea727c, type: 2}
     - name: score_text
       prefab: {fileID: 1340690774060004, guid: 39f38baf746ef2f4cb4f102d0537ddd3, type: 2}
+    gravity: 20
   rockManager: {fileID: 114868185192438906}
   carrotManager: {fileID: 114723577067077228}
   hudController: {fileID: 114098507221007900}
@@ -93,10 +94,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    minSpawnX: -5
-    maxSpawnX: 5
+    spawnPointCount: 12
+    spawnPointStartX: -6
+    spawnPointSpacing: 1.2
     spawnY: -5.2
-    spawnRate: 5
+    spawnRate: 0.1
     carrotPrefab: {fileID: 1439357894246092, guid: 71bb18d1621d0804e8a87f5d7312bb3e,
       type: 2}
 --- !u!114 &114868185192438906

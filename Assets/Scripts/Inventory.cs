@@ -50,7 +50,7 @@ public class Inventory
         }
 
         ItemSlot slot = itemSlots[headIndex];
-        heldItem.OnAddedToInventory(this, headIndex, slot.itemTransform);
+        heldItem.OnAddedToInventory(this, headIndex, slot.itemTransform, false);
         ++headIndex;
 
         slot.heldItem = heldItem;
@@ -58,6 +58,11 @@ public class Inventory
 
     public void RemoveItem(int index)
     {
+        if (index >= headIndex || itemSlots[index].heldItem == null) {
+            return;
+        }
+
+        HeldItem cached = itemSlots[index].heldItem;
         itemSlots[index].heldItem = null;
 
         for (int i = index; i < itemSlots.Count - 1; ++i) {
@@ -68,7 +73,20 @@ public class Inventory
             }
         }
 
+        cached.OnRemoved();
+
         --headIndex;
+    }
+
+    public void RemoveAllItems()
+    {
+        for (int i = 0; i < headIndex; ++i) {
+            if (itemSlots[i].heldItem != null) {
+                itemSlots[i].heldItem.OnRemoved();
+                itemSlots[i].heldItem = null;
+            }
+        }
+        headIndex = 0;
     }
 
     public HeldItem PopItem()

@@ -53,9 +53,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: -0.17055187, y: -0.27951574}
+  m_Offset: {x: -0.12101591, y: -0.27951574}
   serializedVersion: 2
-  m_Size: {x: 0.45149353, y: 0.5909684}
+  m_Size: {x: 0.5505657, y: 0.5909684}
 --- !u!114 &114216293808995526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config:
-    initialDelay: 0.5
-    dropoffInterval: 0.75
+    initialDelay: 0.25
+    dropoffInterval: 0.25
     baseScore: 100
     chainMultiplier: 2
 --- !u!212 &212889887206021332
@@ -104,6 +104,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 95118e515319a7246a46ffdeb856f905, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6911765, g: 0.6911765, b: 0.6911765, a: 1}
   m_FlipX: 0
   m_FlipY: 0

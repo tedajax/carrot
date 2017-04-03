@@ -8,12 +8,20 @@ public class PickupPayload
 
 public class PickupController : MonoBehaviour
 {
-    public bool pickupImmediately;
+    public bool pickupOnContact;
     public bool destroyOnPickup;
+    public float grabTime = 0f;
     public PickupPayload payload;
+
+    public delegate void OnPickupHandler();
+    public event OnPickupHandler onPickup;
 
     public void OnReceived(PickupReceiver receiver)
     {
+        if (onPickup != null) {
+            onPickup();
+        }
+
         if (destroyOnPickup) {
             Destroy(gameObject);
         }
@@ -27,7 +35,7 @@ public class PickupController : MonoBehaviour
             return;
         }
 
-        if (pickupImmediately) {
+        if (pickupOnContact) {
             receiver.Receive(this);
         }
         else {

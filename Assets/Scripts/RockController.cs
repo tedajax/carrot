@@ -29,7 +29,7 @@ public class RockController : MonoBehaviour
 {
     private RockConfig config;
     private RockState state;
-    private float idleTime = 0;
+    private float idleTimer = 0f;
     private bool isInitialized = false;
     private float slipBaseHeight = 0f;
     private float slipStartTime = 0f;
@@ -111,7 +111,18 @@ public class RockController : MonoBehaviour
 
     private void onIdleUpdate()
     {
-        if (Time.time >= idleTime) {
+        float timeMultiplier = 1f;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 15, LayerMask.GetMask("Player"));
+        if (hit.collider != null) {
+            timeMultiplier = 8f;
+            GetComponent<SpriteRenderer>().color = Color.red;
+        }
+        else {
+            GetComponent<SpriteRenderer>().color = Color.white;
+        }
+
+        idleTimer -= Time.deltaTime * timeMultiplier;
+        if (idleTimer <= 0f) {
             setState(RockState.Slip);
         }
     }
@@ -142,7 +153,7 @@ public class RockController : MonoBehaviour
 
     private void onSpawnStart(RockState oldState)
     {
-        idleTime = 0f;
+        idleTimer = 0f;
         Vector3 position = transform.position;
         position.y = config.spawnHeight;
         transform.position = position;
@@ -150,7 +161,7 @@ public class RockController : MonoBehaviour
 
     private void onIdleStart(RockState oldState)
     {
-        idleTime = Time.time + UnityEngine.Random.Range(config.minSpawnTime, config.maxSpawnTime);
+        idleTimer = UnityEngine.Random.Range(config.minSpawnTime, config.maxSpawnTime);
     }
 
     private void onSlipStart(RockState oldState)

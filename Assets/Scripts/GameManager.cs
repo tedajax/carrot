@@ -13,6 +13,7 @@ public struct PrefabRegistryItem
 public struct GameConfig
 {
     public PrefabRegistryItem[] prefabRegistry;
+    public float gravity;
 }
 
 public class PrefabRegistry
@@ -45,11 +46,14 @@ public class GameManager : MonoBehaviour
     public RockManager rockManager;
     public CarrotManager carrotManager;
     public HUDController hudController;
+    public RandomGen Random { get; private set; }
 
     private PrefabRegistry prefabRegistry;
 
     void Awake()
     {
+        // TODO: seeding
+        Random = new RandomGen(0);
         prefabRegistry = new PrefabRegistry(gameConfig.prefabRegistry);
     }
 

@@ -6,6 +6,9 @@ public class HeldItem : MonoBehaviour
     public int Index { get; private set; }
     public Transform Transform { get; private set; }
 
+    public delegate void OnRemovedHandler(HeldItem item);
+    public event OnRemovedHandler onRemoved;
+
     void Awake()
     {
         var health = GetComponent<HealthProperty>();
@@ -14,7 +17,7 @@ public class HeldItem : MonoBehaviour
         }
     }
 
-    public void OnAddedToInventory(Inventory itemHold, int slotIndex, Transform slotTransform, bool snapToSlot = true)
+    public void OnAddedToInventory(Inventory itemHold, int slotIndex, Transform slotTransform, bool snapToSlot)
     {
         Inventory = itemHold;
         Index = slotIndex;
@@ -39,5 +42,12 @@ public class HeldItem : MonoBehaviour
         Inventory = null;
         Transform = null;
         Index = -1;
+    }
+
+    public void OnRemoved()
+    {
+        if (onRemoved != null) {
+            onRemoved(this);
+        }
     }
 }

@@ -23,9 +23,8 @@ GameObject:
   - component: {fileID: 50638343936824440}
   - component: {fileID: 60780505857370798}
   - component: {fileID: 114907512216825036}
-  - component: {fileID: 114234316000637476}
-  - component: {fileID: 114910970787120734}
   - component: {fileID: 114921314712583128}
+  - component: {fileID: 114612121689915334}
   m_Layer: 11
   m_Name: carrot_item
   m_TagString: Untagged
@@ -94,7 +93,7 @@ PolygonCollider2D:
       - {x: 0.39, y: -0.35}
       - {x: 0.39, y: -0.14999999}
       - {x: 0.29, y: 0}
---- !u!114 &114234316000637476
+--- !u!114 &114612121689915334
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -102,9 +101,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1649522678926630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f67d8457505eb1418e9d488852f7b3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 62b8bd8b99fde3348946c407f2c34344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smoothTimeBase: 0.05
+  smoothTimeInterval: 0.05
 --- !u!114 &114907512216825036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,19 +118,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 1
---- !u!114 &114910970787120734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1649522678926630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd8fa48d42690e64992400e4fe8f83cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smoothTimeBase: 0.05
-  smoothTimeInterval: 0.05
 --- !u!114 &114921314712583128
 MonoBehaviour:
   m_ObjectHideFlags: 1
