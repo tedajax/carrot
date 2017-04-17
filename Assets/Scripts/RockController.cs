@@ -33,6 +33,7 @@ public class RockController : MonoBehaviour
     private bool isInitialized = false;
     private float slipBaseHeight = 0f;
     private float slipStartTime = 0f;
+    private float velocity = 0f;
 
     public RockState State { get { return state; } }
 
@@ -143,8 +144,10 @@ public class RockController : MonoBehaviour
 
     private void onFallUpdate()
     {
+        velocity -= 9.81f * Time.deltaTime;
+        
         Vector3 position = transform.position;
-        position.y -= config.fallSpeed * Time.deltaTime;
+        position.y += velocity * Time.deltaTime;
         transform.position = position;
         if (position.y <= config.deadHeight) {
             Respawn();
@@ -172,6 +175,6 @@ public class RockController : MonoBehaviour
 
     private void onFallStart(RockState oldState)
     {
-
+        velocity = 0f;
     }
 }

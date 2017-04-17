@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour, IPickupHolder
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C)) {
+            addCarrot(transform.position);
+        }
+
         if (!health.IsDead) {
             updateMovement();
 
@@ -91,6 +95,10 @@ public class PlayerController : MonoBehaviour, IPickupHolder
             facingLeft = false;
         }
 
+        if (IsGrabbing) {
+            horizontal = 0f;
+        }
+
         acceleration = horizontal * getAcceleration() * Time.deltaTime;
         velocity.x += acceleration;
         velocity.x = Mathf.Clamp(velocity.x, -config.maxSpeed, config.maxSpeed);
@@ -112,6 +120,12 @@ public class PlayerController : MonoBehaviour, IPickupHolder
 
         Vector2 position = transform.position;
         position += velocity * Time.deltaTime;
+
+        if (IsGrabbing) {
+            Vector3 targetPosition = position;
+            targetPosition.x = pickupReceiver.GrabbedPickup.transform.position.x;
+            position = Vector3.Lerp(position, targetPosition, 0.1f);
+        }
 
         if (position.x < config.minPositionX) {
             position.x = config.minPositionX;
@@ -189,7 +203,7 @@ public class PlayerController : MonoBehaviour, IPickupHolder
             return config.movementDecay;
         }
         else {
-            return config.movementDecay * 8;
+            return config.movementDecay * 32;
         }
     }
 }
